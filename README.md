@@ -21,7 +21,7 @@ Este portfolio presenta mi trabajo en / This portfolio presents my work in:
 - JavaScript
 
 ## Secciones / Sections
-- Hero con presentación profesional / Hero section with professional presentation
+- Home con presentación profesional / Home section with professional presentation
 - Acerca de mí / About me
 - Experiencia laboral / Professional experience
 - Portfolio de proyectos / Project portfolio
