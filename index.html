@@ -36,6 +36,25 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Estilos personalizados para los tooltips -->
+  <style>
+    .tooltip-inner {
+        background-color: #149ddd !important;
+        color: white !important;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .bs-tooltip-top .tooltip-arrow::before,
+    .bs-tooltip-bottom .tooltip-arrow::before,
+    .bs-tooltip-left .tooltip-arrow::before,
+    .bs-tooltip-right .tooltip-arrow::before {
+        border-top-color: #149ddd !important;
+        border-bottom-color: #149ddd !important;
+        border-left-color: #149ddd !important;
+        border-right-color: #149ddd !important;
+    }
+    </style>
   
 </head>
 
@@ -891,4 +910,5 @@
 
 </body>
 
+        
 </html>
