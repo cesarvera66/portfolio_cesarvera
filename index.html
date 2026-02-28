@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -38,7 +38,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/main.css?v=2" rel="stylesheet">
 
   <!-- Estilos personalizados para los tooltips -->
   <style>
@@ -287,7 +287,8 @@
         <h2>About</h2>
         <p>Data Analyst, enthusiastic and team-oriented professional with a track record of over 11 years in the
           humanitarian sector. I have accumulated more than 6 years of specialized experience in information management
-          for disaster response, covering the entire data lifecycle—from collection to visualization and analysis—all
+          for disaster response, covering the entire data lifecycle—from collection to visualization and
+          analysis—all
           aimed at supporting strategic decision-making.</p>
       </div><!-- End Section Title -->
 
@@ -501,8 +502,14 @@
         <div class="container">
           <div class="row">
             <!-- Ahora la columna de Experiencia Profesional va primero -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200" style="position: relative;">
               <h3 class="resume-title">Professional Experience</h3>
+
+              <!-- Timeline Glow Progress (Dynamic) -->
+              <div class="timeline-line">
+                <div class="timeline-line-progress"></div>
+              </div>
+
               <div class="resume-item">
                 <h4>Data Management Consultant</h4>
                 <h5>11/2024 - Present</h5>
@@ -1034,11 +1041,17 @@
                     <h4>Exploratory Data Analysis — Titanic</h4>
                     <p>Comprehensive EDA identifying key factors that determined passenger survival on the Titanic,
                       including statistical tests and 12 professional visualizations.</p>
-                    <a href="assets/img/portfolio/eda-titanic.png" title="Exploratory Data Analysis — Titanic"
-                      data-gallery="portfolio-gallery-analysis" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="https://github.com/cesarvera66/eda-titanic-portfolio" title="View on GitHub"
-                      class="details-link" target="_blank"><i class="bi bi-github"></i></a>
+
+                    <!-- NEW: Custom Modal Trigger -->
+                    <a href="#" title="View Details" class="custom-modal-trigger details-link"
+                      data-title="Exploratory Data Analysis — Titanic"
+                      data-desc="This project involves a comprehensive Exploratory Data Analysis (EDA) of the famous Titanic dataset.<br><br>The goal was to uncover patterns, trends, and key factors that influenced passenger survival rates, utilizing statistical testing (Chi-Square, T-tests) and creating 12 professional-grade visualizations.<br><br>Key findings highlighted the impact of gender, class, and age on survival probabilities."
+                      data-img="assets/img/portfolio/eda-titanic.png"
+                      data-tags="Python,Pandas,Seaborn,Matplotlib,Jupyter,Statistics"
+                      data-link-github="https://github.com/cesarvera66/eda-titanic-portfolio">
+                      <i class="bi bi-zoom-in"></i>
+                    </a>
+
                   </div>
                 </div>
               </div><!-- End Portfolio Item -->
@@ -1363,8 +1376,51 @@
     });
   </script>
 
+  <!-- VanillaTilt 3D Effect for Portfolio Cards -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".portfolio-wrap"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+      scale: 1.02
+    });
+  </script>
+
+  <!-- Dynamic Project Modal -->
+  <div id="project-modal" class="custom-modal">
+    <div class="custom-modal-overlay"></div>
+    <div class="custom-modal-content">
+      <button class="custom-modal-close"><i class="bi bi-x"></i></button>
+      <div class="custom-modal-body">
+        <div class="modal-left">
+          <img id="modal-img" src="" alt="Project Preview">
+        </div>
+        <div class="modal-right">
+          <h2 id="modal-title">Project Title</h2>
+          <div class="modal-tech-stack" id="modal-tags">
+            <!-- Tags injected via JS -->
+          </div>
+          <p id="modal-desc">Project description goes here...</p>
+          <div class="modal-actions">
+            <a href="#" id="modal-btn-view" target="_blank" class="modal-btn"><i class="bi bi-link-45deg"></i> View
+              Project</a>
+            <a href="#" id="modal-btn-github" target="_blank" class="modal-btn modal-btn-outline"><i
+                class="bi bi-github"></i> Repository</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=2"></script>
 
   <!-- Particle Animation -->
   <script src="assets/js/particles.js?v=5"></script>
