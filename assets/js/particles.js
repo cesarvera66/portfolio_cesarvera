@@ -2,183 +2,177 @@
     const canvas = document.getElementById('heroParticles');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let width, height, particles, time = 0;
-    const mouse = { x: -1000, y: -1000, active: false };
+    let w, h, pts = [], t = 0;
+    const mouse = { x: -999, y: -999, on: false };
+    const dpr = window.devicePixelRatio || 1;
 
-    function resize() {
-        const section = canvas.parentElement;
-        width = canvas.width = section.offsetWidth;
-        height = canvas.height = section.offsetHeight;
+    function init() {
+        const sec = canvas.parentElement;
+        w = sec.offsetWidth;
+        h = sec.offsetHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        mkPts();
     }
 
-    function createParticles() {
-        const count = Math.min(250, Math.floor((width * height) / 3000));
-        particles = [];
-        for (let i = 0; i < count; i++) {
-            const layer = Math.random();
-            particles.push({
-                baseX: Math.random() * width,
-                baseY: Math.random() * height,
+    function mkPts() {
+        const n = Math.max(180, Math.floor(w * h / 5000));
+        pts = [];
+        for (let i = 0; i < n; i++) {
+            const d = Math.random();
+            pts.push({
+                bx: Math.random() * w, by: Math.random() * h,
                 x: 0, y: 0,
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: (Math.random() - 0.5) * 0.3,
-                radius: layer * 3.5 + 1,
-                layer: layer,
-                hue: 190 + Math.random() * 40,
-                sat: 70 + Math.random() * 30,
-                light: 50 + Math.random() * 30,
-                alpha: 0.5 + layer * 0.5,
-                phase: Math.random() * Math.PI * 2,
-                waveAmpX: 20 + Math.random() * 60,
-                waveAmpY: 15 + Math.random() * 40,
-                waveSpeedX: 0.003 + Math.random() * 0.008,
-                waveSpeedY: 0.002 + Math.random() * 0.006,
+                dx: (Math.random() - 0.5) * 0.4,
+                dy: (Math.random() - 0.5) * 0.4,
+                r: d * 3 + 1.2,
+                d: d,
+                h: 185 + Math.random() * 50,
+                s: 70 + Math.random() * 30,
+                l: 55 + Math.random() * 25,
+                a: 0.5 + d * 0.5,
+                p: Math.random() * 6.28,
+                ax: 25 + Math.random() * 50,
+                ay: 20 + Math.random() * 35,
+                sx: 0.004 + Math.random() * 0.008,
+                sy: 0.003 + Math.random() * 0.006,
             });
         }
     }
 
-    function drawGradientBlobs() {
-        const blobs = [
-            { x: width * 0.2, y: height * 0.3, r: 300, hue: 200, speed: 0.001 },
-            { x: width * 0.8, y: height * 0.6, r: 250, hue: 220, speed: 0.0015 },
-            { x: width * 0.5, y: height * 0.8, r: 200, hue: 180, speed: 0.002 },
-        ];
-        blobs.forEach(bl => {
-            const bx = bl.x + Math.sin(time * bl.speed) * 100;
-            const by = bl.y + Math.cos(time * bl.speed * 0.7) * 80;
-            const grad = ctx.createRadialGradient(bx, by, 0, bx, by, bl.r);
-            grad.addColorStop(0, `hsla(${bl.hue}, 80%, 50%, 0.15)`);
-            grad.addColorStop(0.5, `hsla(${bl.hue + 20}, 70%, 40%, 0.06)`);
-            grad.addColorStop(1, 'transparent');
-            ctx.fillStyle = grad;
-            ctx.fillRect(bx - bl.r, by - bl.r, bl.r * 2, bl.r * 2);
-        });
-    }
+    function frame() {
+        t++;
+        ctx.clearRect(0, 0, w, h);
 
-    function drawConnections() {
-        const maxDist = 120;
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distSq = dx * dx + dy * dy;
-                if (distSq < maxDist * maxDist) {
-                    const dist = Math.sqrt(distSq);
-                    const opacity = (1 - dist / maxDist) * 0.5 * Math.min(particles[i].layer, particles[j].layer);
-                    const avgHue = (particles[i].hue + particles[j].hue) / 2;
+        // Ambient blobs
+        const bls = [
+            [w * 0.25, h * 0.35, 350, 195], [w * 0.75, h * 0.55, 300, 215],
+            [w * 0.5, h * 0.75, 280, 175], [w * 0.15, h * 0.7, 250, 205]
+        ];
+        for (const [bx, by, br, bh] of bls) {
+            const x = bx + Math.sin(t * 0.0012) * 90;
+            const y = by + Math.cos(t * 0.001) * 70;
+            const g = ctx.createRadialGradient(x, y, 0, x, y, br);
+            g.addColorStop(0, 'hsla(' + bh + ',85%,50%,0.12)');
+            g.addColorStop(0.6, 'hsla(' + (bh + 15) + ',70%,40%,0.04)');
+            g.addColorStop(1, 'transparent');
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(x, y, br, 0, 6.28);
+            ctx.fill();
+        }
+
+        // Mouse glow
+        if (mouse.on) {
+            const mg = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 220);
+            mg.addColorStop(0, 'hsla(200,90%,65%,0.2)');
+            mg.addColorStop(0.4, 'hsla(210,85%,55%,0.08)');
+            mg.addColorStop(1, 'transparent');
+            ctx.fillStyle = mg;
+            ctx.beginPath();
+            ctx.arc(mouse.x, mouse.y, 220, 0, 6.28);
+            ctx.fill();
+        }
+
+        // Update positions
+        for (const p of pts) {
+            p.x = p.bx + Math.sin(t * p.sx + p.p) * p.ax;
+            p.y = p.by + Math.cos(t * p.sy + p.p) * p.ay;
+            p.bx += p.dx;
+            p.by += p.dy;
+            if (mouse.on) {
+                const dx = mouse.x - p.x, dy = mouse.y - p.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 180) {
+                    const f = (180 - dist) / 180 * 0.6 * p.d;
+                    p.bx += dx / dist * f;
+                    p.by += dy / dist * f;
+                }
+            }
+            if (p.bx < -50) p.bx = w + 50;
+            if (p.bx > w + 50) p.bx = -50;
+            if (p.by < -50) p.by = h + 50;
+            if (p.by > h + 50) p.by = -50;
+        }
+
+        // Lines
+        const md = 130;
+        for (let i = 0; i < pts.length; i++) {
+            for (let j = i + 1; j < pts.length; j++) {
+                const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+                const dsq = dx * dx + dy * dy;
+                if (dsq < md * md) {
+                    const d = Math.sqrt(dsq);
+                    const o = (1 - d / md) * 0.4 * Math.min(pts[i].d, pts[j].d);
+                    const ah = (pts[i].h + pts[j].h) / 2;
+                    ctx.strokeStyle = 'hsla(' + ah + ',80%,60%,' + o + ')';
+                    ctx.lineWidth = o * 3;
                     ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `hsla(${avgHue}, 80%, 60%, ${opacity})`;
-                    ctx.lineWidth = opacity * 2.5;
+                    ctx.moveTo(pts[i].x, pts[i].y);
+                    ctx.lineTo(pts[j].x, pts[j].y);
                     ctx.stroke();
                 }
             }
         }
-    }
 
-    function drawMouseGlow() {
-        if (!mouse.active) return;
-        const grad1 = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 250);
-        grad1.addColorStop(0, 'hsla(200, 90%, 60%, 0.18)');
-        grad1.addColorStop(0.3, 'hsla(210, 80%, 50%, 0.08)');
-        grad1.addColorStop(1, 'transparent');
-        ctx.fillStyle = grad1;
-        ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, 250, 0, Math.PI * 2);
-        ctx.fill();
-    }
+        // Particles
+        for (const p of pts) {
+            const hs = Math.sin(t * 0.005 + p.p) * 12;
+            const ch = p.h + hs;
+            const pa = p.a + Math.sin(t * 0.02 + p.p) * 0.12;
+            const cr = p.r + Math.sin(t * 0.015 + p.p) * 0.8;
 
-    function animate() {
-        time++;
-        ctx.clearRect(0, 0, width, height);
-        drawGradientBlobs();
-        drawMouseGlow();
-        drawConnections();
-
-        for (let i = 0; i < particles.length; i++) {
-            const p = particles[i];
-            // Organic wave motion
-            p.x = p.baseX + Math.sin(time * p.waveSpeedX + p.phase) * p.waveAmpX;
-            p.y = p.baseY + Math.cos(time * p.waveSpeedY + p.phase) * p.waveAmpY;
-            // Slow drift
-            p.baseX += p.vx;
-            p.baseY += p.vy;
-
-            // Mouse attraction
-            if (mouse.active) {
-                const dx = mouse.x - p.x;
-                const dy = mouse.y - p.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 200 && dist > 0) {
-                    const force = (200 - dist) / 200 * 0.8 * p.layer;
-                    p.baseX += (dx / dist) * force;
-                    p.baseY += (dy / dist) * force;
-                }
-            }
-
-            // Wrap edges
-            if (p.baseX < -80) p.baseX = width + 80;
-            if (p.baseX > width + 80) p.baseX = -80;
-            if (p.baseY < -80) p.baseY = height + 80;
-            if (p.baseY > height + 80) p.baseY = -80;
-
-            // Dynamic color
-            const hueShift = Math.sin(time * 0.005 + p.phase) * 15;
-            const currentHue = p.hue + hueShift;
-            const pulseAlpha = p.alpha + Math.sin(time * 0.02 + p.phase) * 0.15;
-            const r = p.radius + Math.sin(time * 0.015 + p.phase) * 0.8;
-
-            // Draw with bloom glow
             ctx.save();
-            ctx.shadowBlur = 20 + p.layer * 35;
-            ctx.shadowColor = `hsla(${currentHue}, ${p.sat}%, ${p.light}%, ${pulseAlpha})`;
+            ctx.shadowBlur = 25 + p.d * 40;
+            ctx.shadowColor = 'hsla(' + ch + ',' + p.s + '%,' + p.l + '%,' + pa + ')';
 
-            // Outer glow
+            // Outer halo
+            ctx.globalAlpha = pa * 0.15;
             ctx.beginPath();
-            ctx.arc(p.x, p.y, r * 3, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${currentHue}, ${p.sat}%, ${p.light}%, ${pulseAlpha * 0.08})`;
+            ctx.arc(p.x, p.y, cr * 4, 0, 6.28);
+            ctx.fillStyle = 'hsla(' + ch + ',' + p.s + '%,' + (p.l + 10) + '%,1)';
             ctx.fill();
 
-            // Core
+            // Main body
+            ctx.globalAlpha = pa;
             ctx.beginPath();
-            ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${currentHue}, ${p.sat}%, ${p.light + 20}%, ${pulseAlpha})`;
+            ctx.arc(p.x, p.y, cr, 0, 6.28);
+            ctx.fillStyle = 'hsla(' + ch + ',' + p.s + '%,' + (p.l + 15) + '%,1)';
             ctx.fill();
 
-            // Bright center
+            // Hot center
+            ctx.globalAlpha = pa * 0.9;
             ctx.beginPath();
-            ctx.arc(p.x, p.y, r * 0.4, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${currentHue}, 100%, 90%, ${pulseAlpha})`;
+            ctx.arc(p.x, p.y, cr * 0.35, 0, 6.28);
+            ctx.fillStyle = 'hsla(' + ch + ',100%,92%,1)';
             ctx.fill();
 
             ctx.restore();
         }
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame(frame);
     }
 
-    // Mouse events
     const hero = canvas.parentElement;
     hero.addEventListener('mousemove', function (e) {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-        mouse.active = true;
+        const r = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - r.left;
+        mouse.y = e.clientY - r.top;
+        mouse.on = true;
     });
-    hero.addEventListener('mouseleave', function () { mouse.active = false; });
-    // Touch support
+    hero.addEventListener('mouseleave', function () { mouse.on = false; });
     hero.addEventListener('touchmove', function (e) {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.touches[0].clientX - rect.left;
-        mouse.y = e.touches[0].clientY - rect.top;
-        mouse.active = true;
+        const r = canvas.getBoundingClientRect();
+        mouse.x = e.touches[0].clientX - r.left;
+        mouse.y = e.touches[0].clientY - r.top;
+        mouse.on = true;
     }, { passive: true });
-    hero.addEventListener('touchend', function () { mouse.active = false; });
+    hero.addEventListener('touchend', function () { mouse.on = false; });
 
-    // Init
-    window.addEventListener('resize', function () { resize(); createParticles(); });
-    resize();
-    createParticles();
-    animate();
+    window.addEventListener('resize', init);
+    init();
+    frame();
 })();
