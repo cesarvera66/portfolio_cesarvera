@@ -48,6 +48,7 @@
     function frame() {
         t++;
         ctx.clearRect(0, 0, w, h);
+        const isLight = document.body.classList.contains('light-theme');
 
         // Ambient blobs
         const bls = [
@@ -110,7 +111,7 @@
                     const d = Math.sqrt(dsq);
                     const o = (1 - d / md) * 0.4 * Math.min(pts[i].d, pts[j].d);
                     const ah = (pts[i].h + pts[j].h) / 2;
-                    ctx.strokeStyle = 'hsla(' + ah + ',80%,60%,' + o + ')';
+                    ctx.strokeStyle = isLight ? 'hsla(' + ah + ',80%,30%,' + (o * 1.5) + ')' : 'hsla(' + ah + ',80%,60%,' + o + ')';
                     ctx.lineWidth = o * 3;
                     ctx.beginPath();
                     ctx.moveTo(pts[i].x, pts[i].y);
@@ -127,6 +128,8 @@
             const pa = p.a + Math.sin(t * 0.02 + p.p) * 0.12;
             const cr = p.r + Math.sin(t * 0.015 + p.p) * 0.8;
 
+            const bl = isLight ? 20 : p.l; // Use lower lightness in light mode
+
             ctx.save();
             // Removed shadowBlur to fix the massive performance lag.
             // Using layered arcs (below) provides a fast, native glow effect.
@@ -135,21 +138,21 @@
             ctx.globalAlpha = pa * 0.15;
             ctx.beginPath();
             ctx.arc(p.x, p.y, cr * 4, 0, 6.28);
-            ctx.fillStyle = 'hsla(' + ch + ',' + p.s + '%,' + (p.l + 10) + '%,1)';
+            ctx.fillStyle = 'hsla(' + ch + ',' + p.s + '%,' + (bl + 10) + '%,1)';
             ctx.fill();
 
             // Main body
             ctx.globalAlpha = pa;
             ctx.beginPath();
             ctx.arc(p.x, p.y, cr, 0, 6.28);
-            ctx.fillStyle = 'hsla(' + ch + ',' + p.s + '%,' + (p.l + 15) + '%,1)';
+            ctx.fillStyle = 'hsla(' + ch + ',' + p.s + '%,' + (bl + 15) + '%,1)';
             ctx.fill();
 
             // Hot center
             ctx.globalAlpha = pa * 0.9;
             ctx.beginPath();
             ctx.arc(p.x, p.y, cr * 0.35, 0, 6.28);
-            ctx.fillStyle = 'hsla(' + ch + ',100%,92%,1)';
+            ctx.fillStyle = isLight ? 'hsla(' + ch + ',100%,15%,1)' : 'hsla(' + ch + ',100%,92%,1)';
             ctx.fill();
 
             ctx.restore();

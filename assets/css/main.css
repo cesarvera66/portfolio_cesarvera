@@ -1576,9 +1576,9 @@ body.light-theme .light-background {
 }
 
 body.light-theme .hero.dark-background {
-  --background-color: #111111;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --background-color: #ffffff;
+  --default-color: #333333;
+  --heading-color: #111111;
 }
 
 body.light-theme .header,
