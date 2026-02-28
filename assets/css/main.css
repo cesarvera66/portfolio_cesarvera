@@ -19,15 +19,15 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
-  --background-color: #ffffff;
+  --background-color: #040b14;
   /* Background color for the entire website, including individual sections */
-  --default-color: #272829;
+  --default-color: #e0e0e0;
   /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18;
+  --heading-color: #ffffff;
   /* Color for headings, subheadings and title throughout the website */
   --accent-color: #149ddd;
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff;
+  --surface-color: #151f2b;
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff;
   /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
@@ -52,8 +52,8 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f4fafd;
-  --surface-color: #ffffff;
+  --background-color: #151f2b;
+  --surface-color: #1e2a38;
 }
 
 .dark-background {
@@ -1551,4 +1551,131 @@ textarea {
   .modal-right {
     padding: 30px 20px;
   }
+}
+
+/* ====== Light Theme (Premium) ====== */
+body.light-theme {
+  --background-color: #ffffff;
+  --default-color: #333333;
+  --heading-color: #111111;
+  --surface-color: #f7f9fc;
+  --contrast-color: #ffffff;
+}
+
+body.light-theme .dark-background {
+  --background-color: #ffffff;
+  --default-color: #333333;
+  --heading-color: #111111;
+  --surface-color: #f7f9fc;
+  --contrast-color: #ffffff;
+}
+
+body.light-theme .light-background {
+  --background-color: #f4fafd;
+  --surface-color: #ffffff;
+}
+
+body.light-theme .hero.dark-background {
+  --background-color: #111111;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+}
+
+body.light-theme .header,
+body.light-theme .header.dark-background {
+  background-color: #ffffff;
+  border-right: 1px solid #eaeaea;
+}
+
+body.light-theme .header .social-links a {
+  background: #f0f0f0;
+  color: #333;
+}
+
+body.light-theme .header .social-links a:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+body.light-theme .navmenu a,
+body.light-theme .navmenu a:focus {
+  color: #555;
+}
+
+body.light-theme .navmenu a:hover,
+body.light-theme .navmenu .active {
+  color: #111;
+}
+
+body.light-theme .theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 99999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.4s ease;
+  background-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .theme-toggle:hover {
+  transform: rotate(30deg) scale(1.1);
+  box-shadow: 0 4px 15px rgba(20, 157, 221, 0.4);
+}
+
+body.light-theme .theme-toggle .bi-sun-fill {
+  display: inline;
+}
+
+body.light-theme .theme-toggle .bi-moon-fill {
+  display: none;
+}
+
+body:not(.light-theme) .theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 99999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.4s ease;
+  background-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body:not(.light-theme) .theme-toggle:hover {
+  transform: rotate(30deg) scale(1.1);
+  box-shadow: 0 4px 15px rgba(20, 157, 221, 0.4);
+}
+
+body:not(.light-theme) .theme-toggle .bi-sun-fill {
+  display: none;
+}
+
+body:not(.light-theme) .theme-toggle .bi-moon-fill {
+  display: inline;
+}
+
+body.light-theme .portfolio-content,
+body.light-theme .stats-item,
+body.light-theme .service-item {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
 }

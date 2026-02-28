@@ -38,7 +38,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css?v=2" rel="stylesheet">
+  <link href="assets/css/main.css?v=3" rel="stylesheet">
 
   <!-- Estilos personalizados para los tooltips -->
   <style>
@@ -59,142 +59,7 @@
       border-right-color: #149ddd !important;
     }
 
-    /* ====== Theme Toggle Button ====== */
-    .theme-toggle {
-      position: fixed;
-      top: 15px;
-      right: 65px;
-      z-index: 99999;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      transition: all 0.4s ease;
-      background-color: var(--accent-color);
-      color: #fff;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .theme-toggle:hover {
-      transform: rotate(30deg) scale(1.1);
-      box-shadow: 0 4px 15px rgba(20, 157, 221, 0.4);
-    }
-
-    .theme-toggle .bi-sun-fill {
-      display: none;
-    }
-
-    .theme-toggle .bi-moon-fill {
-      display: inline;
-    }
-
-    /* ====== Light Theme Overrides ====== */
-    body.light-theme .theme-toggle .bi-sun-fill {
-      display: inline;
-    }
-
-    body.light-theme .theme-toggle .bi-moon-fill {
-      display: none;
-    }
-
-    /* Header sidebar in light mode */
-    body.light-theme .header.dark-background {
-      --background-color: #f0f4f8;
-      --default-color: #2c3e50;
-      --heading-color: #1a252f;
-      --surface-color: #e8eef3;
-      --contrast-color: #2c3e50;
-      border-right: 1px solid #d1dce5;
-    }
-
-    body.light-theme .header .social-links a {
-      background: #d1dce5;
-      color: #2c3e50;
-    }
-
-    body.light-theme .header .social-links a:hover {
-      background: var(--accent-color);
-      color: #fff;
-    }
-
-    body.light-theme .navmenu a,
-    body.light-theme .navmenu a:focus {
-      color: #556677;
-    }
-
-    body.light-theme .navmenu a:hover,
-    body.light-theme .navmenu .active,
-    body.light-theme .navmenu .active:focus {
-      color: #1a252f;
-    }
-
-    /* Hero section stays dark in light mode for contrast */
-    body.light-theme .hero.dark-background {
-      --background-color: #1a252f;
-      --default-color: #ffffff;
-      --heading-color: #ffffff;
-    }
-
-    /* Light background sections get a subtle blue tint */
-    body.light-theme .light-background {
-      --background-color: #f0f6fb;
-      --surface-color: #ffffff;
-    }
-
-    /* Cards and items get subtle shadows */
-    body.light-theme .stats .stats-item {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
-    }
-
-    body.light-theme .portfolio .portfolio-content {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-    }
-
-    body.light-theme .service-item {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
-    }
-
-    body.light-theme .testimonials .testimonial-item {
-      background: #fff;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
-    }
-
-    /* Footer */
-    body.light-theme .footer.light-background {
-      --background-color: #f0f4f8;
-      border-top: 1px solid #d1dce5;
-    }
-
-    /* Mobile header toggle */
-    body.light-theme .header .header-toggle {
-      background-color: var(--accent-color);
-      color: #fff;
-    }
-
-    /* Smooth transitions */
-    body,
-    body .header,
-    body .hero,
-    body section,
-    body .footer,
-    body .navmenu a,
-    body .social-links a {
-      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    /* ====== Particle Canvas ====== */
+    /* ====== Particle Canvas *====== */
     #heroParticles {
       position: absolute;
       top: 0;
@@ -1328,25 +1193,7 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
-    <!-- Theme Toggle Script -->
-    <script>
-      (function () {
-        const toggle = document.getElementById('themeToggle');
-        const body = document.body;
-
-        // Check saved preference or system preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-          body.classList.add('light-theme');
-        }
-
-        toggle.addEventListener('click', function () {
-          body.classList.toggle('light-theme');
-          const isLight = body.classList.contains('light-theme');
-          localStorage.setItem('theme', isLight ? 'light' : 'dark');
-        });
-      })();
-    </script>
+    
 
   </footer>
 
