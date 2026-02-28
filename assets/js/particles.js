@@ -12,7 +12,7 @@
     }
 
     function createParticles() {
-        const count = Math.min(200, Math.floor((width * height) / 4000));
+        const count = Math.min(250, Math.floor((width * height) / 3000));
         particles = [];
         for (let i = 0; i < count; i++) {
             const layer = Math.random();
@@ -22,12 +22,12 @@
                 x: 0, y: 0,
                 vx: (Math.random() - 0.5) * 0.3,
                 vy: (Math.random() - 0.5) * 0.3,
-                radius: layer * 2.5 + 0.5,
+                radius: layer * 3.5 + 1,
                 layer: layer,
                 hue: 190 + Math.random() * 40,
                 sat: 70 + Math.random() * 30,
                 light: 50 + Math.random() * 30,
-                alpha: 0.3 + layer * 0.7,
+                alpha: 0.5 + layer * 0.5,
                 phase: Math.random() * Math.PI * 2,
                 waveAmpX: 20 + Math.random() * 60,
                 waveAmpY: 15 + Math.random() * 40,
@@ -47,8 +47,8 @@
             const bx = bl.x + Math.sin(time * bl.speed) * 100;
             const by = bl.y + Math.cos(time * bl.speed * 0.7) * 80;
             const grad = ctx.createRadialGradient(bx, by, 0, bx, by, bl.r);
-            grad.addColorStop(0, `hsla(${bl.hue}, 80%, 50%, 0.08)`);
-            grad.addColorStop(0.5, `hsla(${bl.hue + 20}, 70%, 40%, 0.03)`);
+            grad.addColorStop(0, `hsla(${bl.hue}, 80%, 50%, 0.15)`);
+            grad.addColorStop(0.5, `hsla(${bl.hue + 20}, 70%, 40%, 0.06)`);
             grad.addColorStop(1, 'transparent');
             ctx.fillStyle = grad;
             ctx.fillRect(bx - bl.r, by - bl.r, bl.r * 2, bl.r * 2);
@@ -64,7 +64,7 @@
                 const distSq = dx * dx + dy * dy;
                 if (distSq < maxDist * maxDist) {
                     const dist = Math.sqrt(distSq);
-                    const opacity = (1 - dist / maxDist) * 0.35 * Math.min(particles[i].layer, particles[j].layer);
+                    const opacity = (1 - dist / maxDist) * 0.5 * Math.min(particles[i].layer, particles[j].layer);
                     const avgHue = (particles[i].hue + particles[j].hue) / 2;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
@@ -131,8 +131,8 @@
 
             // Draw with bloom glow
             ctx.save();
-            ctx.shadowBlur = 15 + p.layer * 25;
-            ctx.shadowColor = `hsla(${currentHue}, ${p.sat}%, ${p.light}%, ${pulseAlpha * 0.8})`;
+            ctx.shadowBlur = 20 + p.layer * 35;
+            ctx.shadowColor = `hsla(${currentHue}, ${p.sat}%, ${p.light}%, ${pulseAlpha})`;
 
             // Outer glow
             ctx.beginPath();
