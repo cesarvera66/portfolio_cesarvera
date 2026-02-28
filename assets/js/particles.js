@@ -4,7 +4,8 @@
     const ctx = canvas.getContext('2d');
     let w, h, pts = [], t = 0;
     const mouse = { x: -999, y: -999, on: false };
-    const dpr = window.devicePixelRatio || 1;
+    // Limit devicePixelRatio to 1.5 max for huge performance gain on Retina/4K screens
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
 
     function init() {
         const sec = canvas.parentElement;
@@ -19,7 +20,8 @@
     }
 
     function mkPts() {
-        const n = Math.max(180, Math.floor(w * h / 5000));
+        // Less particles = exponentially faster (due to O(N^2) connection loops)
+        const n = Math.max(90, Math.floor(w * h / 9000));
         pts = [];
         for (let i = 0; i < n; i++) {
             const d = Math.random();
@@ -126,8 +128,8 @@
             const cr = p.r + Math.sin(t * 0.015 + p.p) * 0.8;
 
             ctx.save();
-            ctx.shadowBlur = 25 + p.d * 40;
-            ctx.shadowColor = 'hsla(' + ch + ',' + p.s + '%,' + p.l + '%,' + pa + ')';
+            // Removed shadowBlur to fix the massive performance lag.
+            // Using layered arcs (below) provides a fast, native glow effect.
 
             // Outer halo
             ctx.globalAlpha = pa * 0.15;
