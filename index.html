@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,7 +27,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&family=Poppins:wght@400&family=Raleway:wght@400;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -94,6 +94,9 @@
     <i class="bi bi-sun-fill"></i>
   </button>
 
+  <!-- Language Toggle Button -->
+  <button id="langToggle" title="Switch to Spanish" aria-label="Change language">ES</button>
+
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
@@ -120,13 +123,13 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#home" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#interests"><i class="bi bi-hdd-stack navicon"></i> Interests</a></li>
-        <li><a href="#references"><i class="bi bi-menu-button navicon"></i> <span>References</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="#home" class="active"><i class="bi bi-house navicon"></i><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i> <span data-i18n="nav.about">About</span></a></li>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> <span data-i18n="nav.resume">Resume</span></a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> <span data-i18n="nav.portfolio">Portfolio</span></a></li>
+        <li><a href="#interests"><i class="bi bi-hdd-stack navicon"></i> <span data-i18n="nav.interests">Interests</span></a></li>
+        <li><a href="#references"><i class="bi bi-menu-button navicon"></i> <span data-i18n="nav.references">References</span></a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> <span data-i18n="nav.contact">Contact</span></a></li>
       </ul>
     </nav>
 
@@ -141,7 +144,7 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Cesar Vera</h2>
-        <p>I'm a <span class="typed"
+        <p><span data-i18n="hero.intro">I'm a </span><span class="typed"
             data-typed-items="Data Analyst..., Data Visualization Specialist..., Systems Analyst..., Programmer..., Humanitarian Worker.">Data</span><span
             class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
@@ -153,8 +156,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Data Analyst, enthusiastic and team-oriented professional with a track record of over 11 years in the
+        <h2 data-i18n="about.title">About</h2>
+        <p data-i18n="about.subtitle">Data Analyst, enthusiastic and team-oriented professional with a track record of over 11 years in the
           humanitarian sector. I have accumulated more than 6 years of specialized experience in information management
           for disaster response, covering the entire data lifecycle—from collection to visualization and
           analysis—all
@@ -164,16 +167,16 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-12 content"> <!-- Se cambió de col-lg-8 a col-lg-12 para ocupar todo el ancho -->
-            <h2>Data Management &amp; Information Professional</h2>
-            <p class="fst-italic py-3">
+            <h2 data-i18n="about.role">Data Management &amp; Information Professional</h2>
+            <p class="fst-italic py-3" data-i18n="about.tagline">
               I combine creativity, analysis, and technology to optimize information management and support
               decision-making.
             </p>
             <div class="row">
-              <div class="col-md-6"> <!-- Se cambió col-lg-6 a col-md-6 para mejor respuesta en pantallas pequeñas -->
+              <div class="col-md-6">
                 <ul>
                   <li>
-                    <i class="bi bi-chevron-right"></i> <strong>CV:</strong>
+                    <i class="bi bi-chevron-right"></i> <strong data-i18n="about.cv">CV:</strong>
                     <span>
                       <a href="https://drive.google.com/uc?export=download&id=1KZrXn825lOZvXm5g3CvoFaPwoy_PnjVZ"
                         download="cv_espanol" target="_blank" rel="noopener noreferrer">CV Español</a> |
@@ -181,21 +184,19 @@
                         download="cv_ingles" target="_blank" rel="noopener noreferrer">CV English</a>
                     </span>
                   </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+507 6630 6663</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Panama, Panama</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.phone">Phone:</strong> <span>+507 6630 6663</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.city">City:</strong> <span>Panama, Panama</span></li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Bachelor's Degree:</strong> <span>Systems Analysis and
-                      Computer Programming</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>cesarvera6@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Languages:</strong> <span>Spanish, English, and
-                      Guarani</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.degree">Bachelor's Degree:</strong> <span data-i18n="about.degreeVal">Systems Analysis and Computer Programming</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.email">Email:</strong> <span>cesarvera6@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.languages">Languages:</strong> <span data-i18n="about.langVal">Spanish, English, and Guarani</span></li>
                 </ul>
               </div>
             </div>
-            <p class="py-3">
+            <p class="py-3" data-i18n="about.body">
               Extensive experience in data collection, processing, and visualization using tools like Kobo, Power BI,
               Tableau, and QGIS. Proven ability to lead data-driven projects in humanitarian contexts, supporting
               National Societies and international teams in disaster response, risk reduction, and emergency management.
@@ -219,8 +220,7 @@
               <i class="bi bi-airplane"></i>
               <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1.5"
                 class="purecounter"></span>
-              <p><strong>Humanitarian Missions</strong><br><span>Emergency response deployments supporting disaster
-                  response worldwide</span></p>
+              <p><strong data-i18n="stats.missions">Humanitarian Missions</strong><br><span data-i18n="stats.missionsDesc">Emergency response deployments supporting disaster response worldwide</span></p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -229,9 +229,7 @@
               <i class="bi bi-geo-alt-fill"></i>
               <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1.5"
                 class="purecounter"></span>
-              <p><strong>Countries Worked In</strong><br><span>Experience in field operations across Panama, Costa Rica,
-                  Honduras, Peru, Hungary, Mozambique, and Paraguay, providing technical support and optimizing data
-                  workflows for humanitarian responses.</span></p>
+              <p><strong data-i18n="stats.countries">Countries Worked In</strong><br><span data-i18n="stats.countriesDesc">Experience in field operations across Panama, Costa Rica, Honduras, Peru, Hungary, Mozambique, and Paraguay, providing technical support and optimizing data workflows for humanitarian responses.</span></p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -240,8 +238,7 @@
               <i class="bi bi-graph-up"></i>
               <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1.5"
                 class="purecounter"></span>
-              <p><strong>Dashboards Developed</strong><br><span> 25+ custom dashboards for real-time monitoring and
-                  analysis.</span></p>
+              <p><strong data-i18n="stats.dashboards">Dashboards Developed</strong><br><span data-i18n="stats.dashboardsDesc">25+ custom dashboards for real-time monitoring and analysis.</span></p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -250,8 +247,7 @@
               <i class="bi bi-database"></i>
               <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1.5"
                 class="purecounter"></span>
-              <p><strong>Data Projects Completed</strong><br><span>32+ projects integrating data collection, processing,
-                  and visualization tools like Kobo, Power BI, and SQL Server.</span></p>
+              <p><strong data-i18n="stats.projects">Data Projects Completed</strong><br><span data-i18n="stats.projectsDesc">32+ projects integrating data collection, processing, and visualization tools like Kobo, Power BI, and SQL Server.</span></p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -266,8 +262,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Tools</h2>
-        <p>These are the key tools and technologies I specialize in, enabling me to analyze, visualize, and manage data
+        <h2 data-i18n="skills.title">Tools</h2>
+        <p data-i18n="skills.desc">These are the key tools and technologies I specialize in, enabling me to analyze, visualize, and manage data
           effectively. From business intelligence platforms like Power BI and Tableau to data management with SQL Server
           and automation with Power Automate, my expertise allows me to create impactful solutions. Additionally, I
           leverage GIS tools like QGIS and data collection platforms such as Kobo Toolbox to support humanitarian and
@@ -366,13 +362,13 @@
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
+        <h2 data-i18n="resume.title">Resume</h2>
 
         <div class="container">
           <div class="row">
-            <!-- Ahora la columna de Experiencia Profesional va primero -->
+            <!-- Professional Experience column -->
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200" style="position: relative;">
-              <h3 class="resume-title">Professional Experience</h3>
+              <h3 class="resume-title" data-i18n="resume.expTitle">Professional Experience</h3>
 
               <!-- Timeline Glow Progress (Dynamic) -->
               <div class="timeline-line">
@@ -380,189 +376,84 @@
               </div>
 
               <div class="resume-item">
-                <h4>Data Management Consultant</h4>
-                <h5>11/2024 - Present</h5>
-                <p><em>International Organization for Migration (IOM) - Panama City, Panama</em></p>
+                <h4 data-i18n="job1.title">Data Management Consultant</h4>
+                <h5 data-i18n="job1.period">11/2024 - Present</h5>
+                <p><em data-i18n="job1.company">International Organization for Migration (IOM) - Panama City, Panama</em></p>
                 <ul>
-                  <li>
-                    Designed and optimized a regional database in <strong>SQL Server</strong>,
-                    restructuring standard tables to improve query performance and survey analysis collected from more
-                    than
-                    <strong>20 geographic locations in 8 countries</strong> during 2024.
-                  </li>
-                  <li>
-                    Designed and optimized a <strong>general table in SQL Server</strong>, consolidating data from
-                    multiple tables
-                    to structure and enhance query performance and information analysis from multiple countries in 2024.
-                  </li>
-                  <li>
-                    Implemented an automated workflow for validation, cleaning, and data loading through a
-                    <strong>Python script with a graphical interface</strong>, reducing errors and accelerating SQL
-                    Server integration.
-                  </li>
-                  <li>
-                    Migrated activities from <strong>Excel to Microsoft Planner</strong>, improving task structuring and
-                    workflow management.
-                  </li>
-                  <li>
-                    Configured a work plan in <strong>Microsoft Planner</strong> with visualization in <strong>Power
-                      BI</strong> and
-                    automated workflows in <strong>Power Automate</strong>, improving task coordination and tracking.
-                  </li>
-                  <li>
-                    Implemented <strong>monitoring dashboards</strong> and validation for survey implementation and
-                    migration flow registration in
-                    <strong>KoboToolbox</strong>, with connection <strong>via API with Power BI</strong>.
-                  </li>
+                  <li data-i18n="resume.job1.bullet1">Designed and optimized a regional database in <strong>SQL Server</strong>, restructuring standard tables to improve query performance and survey analysis collected from more than <strong>20 geographic locations in 8 countries</strong> during 2024.</li>
+                  <li data-i18n="resume.job1.bullet2">Designed and optimized a <strong>general table in SQL Server</strong>, consolidating data from multiple tables to structure and enhance query performance and information analysis from multiple countries in 2024.</li>
+                  <li data-i18n="resume.job1.bullet3">Implemented an automated workflow for validation, cleaning, and data loading through a <strong>Python script with a graphical interface</strong>, reducing errors and accelerating SQL Server integration.</li>
+                  <li data-i18n="resume.job1.bullet4">Migrated activities from <strong>Excel to Microsoft Planner</strong>, improving task structuring and workflow management.</li>
+                  <li data-i18n="resume.job1.bullet5">Configured a work plan in <strong>Microsoft Planner</strong> with visualization in <strong>Power BI</strong> and automated workflows in <strong>Power Automate</strong>, improving task coordination and tracking.</li>
+                  <li data-i18n="resume.job1.bullet6">Implemented <strong>monitoring dashboards</strong> and validation for survey implementation and migration flow registration in <strong>KoboToolbox</strong>, with connection <strong>via API with Power BI</strong>.</li>
                 </ul>
               </div>
               <div class="resume-item">
-                <h4>Information Management Officer</h4>
-                <h5>02/2024 - 11/2024</h5>
-                <p><em>International Federation of the Red Cross (IFRC) - Panama City, Panama</em></p>
+                <h4 data-i18n="job2.title">Information Management Officer</h4>
+                <h5 data-i18n="job2.period">02/2024 - 11/2024</h5>
+                <p><em data-i18n="job2.company">International Federation of the Red Cross (IFRC) - Panama City, Panama</em></p>
                 <ul>
-                  <li>
-                    Developed a <strong>regional dashboard</strong> for monitoring humanitarian assistance and
-                    estimating migration flows from
-                    <strong>5 Central American countries</strong>.
-                  </li>
-                  <li>
-                    Implemented an <strong>information assistance point for migrants</strong> in the
-                    <strong>Darién</strong> region, Panama,
-                    facilitating access to satellite internet and establishing feedback systems.
-                  </li>
-                  <li>
-                    Managed data and information for decision-making in various <strong>emergency operations and
-                      humanitarian programs</strong>,
-                    strengthening National Societies capacities in the subregion.
-                  </li>
-                  <li>
-                    <strong>Facilitated training</strong> for information management teams in Costa Rica and Panama on
-                    <strong>HIAC</strong> certifications,
-                    mobile data collection tools such as <strong>Kobo Toolbox and ODK</strong>, and served as a
-                    <strong>mentor</strong> for the first
-                    "Regional Information Management Team for Emergency Deployment" program.
-                  </li>
-                  <li>
-                    Participated in a <strong>multisectoral assessment in Darién</strong>, providing
-                    <strong>recommendations for improvement</strong>
-                    in the collection, analysis, and visualization of data on services and activities carried out by the
-                    <strong>Red Cross Panama in that area</strong>.
-                  </li>
-                  <li>
-                    <strong>SIMS Coordinator</strong> in the <strong>Hurricane Beryl</strong> response, leading the
-                    coordination of remote support
-                    for information management, providing assistance in data processing, analysis, and visualization.
-                  </li>
+                  <li data-i18n="resume.job2.bullet1">Developed a <strong>regional dashboard</strong> for monitoring humanitarian assistance and estimating migration flows from <strong>5 Central American countries</strong>.</li>
+                  <li data-i18n="resume.job2.bullet2">Implemented an <strong>information assistance point for migrants</strong> in the <strong>Darién</strong> region, Panama, facilitating access to satellite internet and establishing feedback systems.</li>
+                  <li data-i18n="resume.job2.bullet3">Managed data and information for decision-making in various <strong>emergency operations and humanitarian programs</strong>, strengthening National Societies capacities in the subregion.</li>
+                  <li data-i18n="resume.job2.bullet4"><strong>Facilitated training</strong> for information management teams in Costa Rica and Panama on <strong>HIAC</strong> certifications, mobile data collection tools such as <strong>Kobo Toolbox and ODK</strong>, and served as a <strong>mentor</strong> for the first "Regional Information Management Team for Emergency Deployment" program.</li>
+                  <li data-i18n="resume.job2.bullet5">Participated in a <strong>multisectoral assessment in Darién</strong>, providing <strong>recommendations for improvement</strong> in the collection, analysis, and visualization of data on services and activities carried out by the <strong>Red Cross Panama in that area</strong>.</li>
+                  <li data-i18n="resume.job2.bullet6"><strong>SIMS Coordinator</strong> in the <strong>Hurricane Beryl</strong> response, leading the coordination of remote support for information management, providing assistance in data processing, analysis, and visualization.</li>
                 </ul>
               </div>
               <div class="resume-item">
-                <h4>Revenue Assurance Analyst</h4>
-                <h5>08/2023 - 02/2024</h5>
-                <p><em>Tigo Panama - Panama City, Panama</em></p>
+                <h4 data-i18n="job3.title">Revenue Assurance Analyst</h4>
+                <h5 data-i18n="job3.period">08/2023 - 02/2024</h5>
+                <p><em data-i18n="job3.company">Tigo Panama - Panama City, Panama</em></p>
                 <ul>
-                  <li>
-                    Coordinated with business teams to establish and maintain <strong>control processes</strong> for
-                    revenue assurance.
-                  </li>
-                  <li>
-                    Developed <strong>automated tools for trend, variance, and loss analysis in Revenue
-                      Assurance</strong>.
-                  </li>
-                  <li>
-                    Designed and programmed <strong>controls in SQL Server</strong> to monitor anomalies.
-                  </li>
-                  <li>
-                    Implemented <strong>dashboards in Power BI</strong> for tracking revenues from roaming and
-                    electronic top-ups.
-                  </li>
-                  <li>
-                    Participated in <strong>database migrations</strong>, ensuring data integrity and accuracy during
-                    the transfer process.
-                  </li>
-                  <li>
-                    Led the execution and improvement of <strong>IC, SOX, and KPI</strong> controls.
-                  </li>
+                  <li data-i18n="resume.job3.bullet1">Coordinated with business teams to establish and maintain <strong>control processes</strong> for revenue assurance.</li>
+                  <li data-i18n="resume.job3.bullet2">Developed <strong>automated tools for trend, variance, and loss analysis in Revenue Assurance</strong>.</li>
+                  <li data-i18n="resume.job3.bullet3">Designed and programmed <strong>controls in SQL Server</strong> to monitor anomalies.</li>
+                  <li data-i18n="resume.job3.bullet4">Implemented <strong>dashboards in Power BI</strong> for tracking revenues from roaming and electronic top-ups.</li>
+                  <li data-i18n="resume.job3.bullet5">Participated in <strong>database migrations</strong>, ensuring data integrity and accuracy during the transfer process.</li>
+                  <li data-i18n="resume.job3.bullet6">Led the execution and improvement of <strong>IC, SOX, and KPI</strong> controls.</li>
                 </ul>
               </div>
               <div class="resume-item">
-                <h4>Information Management Lead</h4>
-                <h5>01/2023 - 06/2023 (Full-time) / 01/2022 - 12/2022 (Part-time)</h5>
-                <p><em>American Red Cross - Panama City, Panama</em></p>
+                <h4 data-i18n="job4.title">Information Management Lead</h4>
+                <h5 data-i18n="job4.period">01/2023 - 06/2023 (Full-time) / 01/2022 - 12/2022 (Part-time)</h5>
+                <p><em data-i18n="job4.company">American Red Cross - Panama City, Panama</em></p>
                 <ul>
-                  <li>
-                    Led <strong>information management (IM) support</strong> for the Latin America and Caribbean
-                    Division, ensuring the efficient handling of data and information.
-                  </li>
-                  <li>
-                    Provided comprehensive information management support to <strong>multiple countries with ongoing
-                      projects</strong>, including
-                    <strong>Guatemala, Honduras, El Salvador, Mexico, and Colombia</strong>.
-                  </li>
-                  <li>
-                    Documented data and information flows, developing training materials to facilitate <strong>data
-                      exchange and efficient management</strong>.
-                  </li>
-                  <li>
-                    <strong>Developed an interactive and user-friendly dashboard</strong> to monitor the <strong>LAC
-                      Portfolio</strong>, providing an overview of projects, financial status, key indicators, and
-                    relevant data for decision-making and progress tracking.
-                  </li>
-                  <li>
-                    <strong>Developed dashboards for monitoring humanitarian assistance and emergency response</strong>,
-                    enabling real-time analysis and facilitating strategic decision-making.
-                  </li>
+                  <li data-i18n="resume.job4.bullet1">Led <strong>information management (IM) support</strong> for the Latin America and Caribbean Division, ensuring the efficient handling of data and information.</li>
+                  <li data-i18n="resume.job4.bullet2">Provided comprehensive information management support to <strong>multiple countries with ongoing projects</strong>, including <strong>Guatemala, Honduras, El Salvador, Mexico, and Colombia</strong>.</li>
+                  <li data-i18n="resume.job4.bullet3">Documented data and information flows, developing training materials to facilitate <strong>data exchange and efficient management</strong>.</li>
+                  <li data-i18n="resume.job4.bullet4"><strong>Developed an interactive and user-friendly dashboard</strong> to monitor the <strong>LAC Portfolio</strong>, providing an overview of projects, financial status, key indicators, and relevant data for decision-making and progress tracking.</li>
+                  <li data-i18n="resume.job4.bullet5"><strong>Developed dashboards for monitoring humanitarian assistance and emergency response</strong>, enabling real-time analysis and facilitating strategic decision-making.</li>
                 </ul>
               </div>
               <div class="resume-item">
-                <h4>Information Management Officer</h4>
-                <h5>12/2020 - 12/2022</h5>
-                <p><em>International Federation of the Red Cross (IFRC) - Panama City, Panama</em></p>
+                <h4 data-i18n="job5.title">Information Management Officer</h4>
+                <h5 data-i18n="job5.period">12/2020 - 12/2022</h5>
+                <p><em data-i18n="job5.company">International Federation of the Red Cross (IFRC) - Panama City, Panama</em></p>
                 <ul>
-                  <li>
-                    Coordinated information management for the <strong>health, water, hygiene, and sanitation</strong>
-                    department,
-                    ensuring quality and analysis in response reports to the <strong>COVID-19</strong> pandemic.
-                  </li>
-                  <li>
-                    Designed a <strong>monitoring dashboard for global COVID-19 risk levels</strong>, based on a matrix
-                    of key epidemiological indicators.
-                  </li>
-                  <li>
-                    <strong>Developed a regional monitoring dashboard</strong> for the <strong>COVID-19</strong>
-                    response,
-                    visualizing the implementation of measures across multiple countries.
-                  </li>
-                  <li>
-                    Developed a <strong>regional immunization dashboard</strong> to track <strong>14 vaccines in 33
-                      countries</strong> over the past <strong>20 years</strong>.
-                  </li>
-                  <li>
-                    Deployed as <strong>rapid response personnel</strong> in Honduras to support the <strong>information
-                      management strategy coordination</strong>
-                    in response to <strong>Eta/Iota</strong>.
-                  </li>
-                  <li>
-                    Deployed as <strong>rapid response personnel in Budapest, Hungary</strong>, to support the emergency
-                    operation in Ukraine.
-                  </li>
+                  <li data-i18n="resume.job5.bullet1">Coordinated information management for the <strong>health, water, hygiene, and sanitation</strong> department, ensuring quality and analysis in response reports to the <strong>COVID-19</strong> pandemic.</li>
+                  <li data-i18n="resume.job5.bullet2">Designed a <strong>monitoring dashboard for global COVID-19 risk levels</strong>, based on a matrix of key epidemiological indicators.</li>
+                  <li data-i18n="resume.job5.bullet3"><strong>Developed a regional monitoring dashboard</strong> for the <strong>COVID-19</strong> response, visualizing the implementation of measures across multiple countries.</li>
+                  <li data-i18n="resume.job5.bullet4">Developed a <strong>regional immunization dashboard</strong> to track <strong>14 vaccines in 33 countries</strong> over the past <strong>20 years</strong>.</li>
+                  <li data-i18n="resume.job5.bullet5">Deployed as <strong>rapid response personnel</strong> in Honduras to support the <strong>information management strategy coordination</strong> in response to <strong>Eta/Iota</strong>.</li>
+                  <li data-i18n="resume.job5.bullet6">Deployed as <strong>rapid response personnel in Budapest, Hungary</strong>, to support the emergency operation in Ukraine.</li>
                 </ul>
               </div>
               <div class="resume-item">
-                <h4>Information Management Consultant</h4>
-                <h5>11/2019 - 11/2020</h5>
-                <p><em>International Federation of the Red Cross (IFRC) - Panama City, Panama</em></p>
+                <h4 data-i18n="job6.title">Information Management Consultant</h4>
+                <h5 data-i18n="job6.period">11/2019 - 11/2020</h5>
+                <p><em data-i18n="job6.company">International Federation of the Red Cross (IFRC) - Panama City, Panama</em></p>
                 <ul>
-                  <li>Managed Information Management for the Health Department of the Americas Regional Office.</li>
-                  <li>Developed a dashboard for the Central America Dengue Outbreak for real-time monitoring.</li>
-                  <li>Created a website and forms for the Public Health Course in Emergencies.</li>
-                  <li>Developed maps for scenarios in the Public Health Course in Emergencies.</li>
+                  <li data-i18n="resume.job6.bullet1">Managed Information Management for the Health Department of the Americas Regional Office.</li>
+                  <li data-i18n="resume.job6.bullet2">Developed a dashboard for the Central America Dengue Outbreak for real-time monitoring.</li>
+                  <li data-i18n="resume.job6.bullet3">Created a website and forms for the Public Health Course in Emergencies.</li>
+                  <li data-i18n="resume.job6.bullet4">Developed maps for scenarios in the Public Health Course in Emergencies.</li>
                 </ul>
               </div>
             </div>
             <!-- Ahora la columna de Computer skills y Education va después -->
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <h3 class="resume-title">Computer skills</h3>
+              <h3 class="resume-title" data-i18n="resume.skillsTitle">Computer Skills</h3>
               <div class="resume-item pb-0">
                 <h4>SQL Server</h4>
                 <p>
@@ -571,7 +462,6 @@
                     Developed automated data pipelines and consolidated datasets for reporting and analysis.
                   </em>
                 </p>
-                <br />
               </div>
               <div class="resume-item pb-0">
                 <h4>Python</h4>
@@ -581,7 +471,6 @@
                     structured data processing and database uploads with graphical interfaces.
                   </em>
                 </p>
-                <br />
               </div>
               <div class="resume-item pb-0">
                 <h4>Power BI</h4>
@@ -591,7 +480,6 @@
                     visualization for real-time decision-making.
                   </em>
                 </p>
-                <br />
               </div>
               <div class="resume-item pb-0">
                 <h4>Tableau</h4>
@@ -601,7 +489,6 @@
                     and emergency response.
                   </em>
                 </p>
-                <br />
               </div>
               <div class="resume-item pb-0">
                 <h4>QGIS</h4>
@@ -610,7 +497,6 @@
                     Proficient in GIS mapping and spatial data analysis for humanitarian applications.
                   </em>
                 </p>
-                <br />
               </div>
               <div class="resume-item pb-0">
                 <h4>Power Automate</h4>
@@ -620,7 +506,6 @@
                     across Microsoft tools.
                   </em>
                 </p>
-                <br />
               </div>
               <div class="resume-item pb-0">
                 <h4>Planner</h4>
@@ -630,7 +515,6 @@
                     BI for real-time tracking.
                   </em>
                 </p>
-                <br />
               </div>
               <div class="resume-item pb-0">
                 <h4>Kobo Toolbox & ODK</h4>
@@ -640,7 +524,6 @@
                     assessments.
                   </em>
                 </p>
-                <br />
               </div>
               <div class="resume-item pb-0">
                 <h4>Excel</h4>
@@ -650,49 +533,36 @@
                     Query, and macros.
                   </em>
                 </p>
-                <br />
               </div>
-              <h3 class="resume-title">Education</h3>
+                      <h3 class="resume-title" data-i18n="resume.eduTitle">Education</h3>
               <div class="resume-item">
-                <h4>Master’s Degree in Project Management</h4>
-                <h5>Currently Studying</h5>
-                <p><em>American University of Paraguay</em></p>
-                <p></p>
+                <h4 data-i18n="edu1.title">Master's Degree in Project Management</h4>
+                <h5 data-i18n="edu1.period">Currently Studying</h5>
+                <p><em data-i18n="edu1.school">American University of Paraguay</em></p>
               </div>
               <div class="resume-item">
-                <h4>Bachelor's Degree in Systems Analysis</h4>
-                <h5>2016 - 2019</h5>
-                <p><em>National University of Pilar (UNP), Pilar, Paraguay</em></p>
-                <p></p>
+                <h4 data-i18n="edu2.title">Bachelor's Degree in Systems Analysis</h4>
+                <h5 data-i18n="edu2.period">2016 - 2019</h5>
+                <p><em data-i18n="edu2.school">National University of Pilar (UNP), Pilar, Paraguay</em></p>
               </div>
               <div class="resume-item">
-                <h4>Computer Programmer</h4>
-                <h5>2016 - 2018</h5>
-                <p><em>National University of Pilar (UNP), Pilar, Paraguay</em></p>
-                <p></p>
-              </div>
+                <h4 data-i18n="edu3.title">Computer Programmer</h4>
+                <h5 data-i18n="edu3.period">2016 - 2018</h5>
+                <p><em data-i18n="edu3.school">National University of Pilar (UNP), Pilar, Paraguay</em></p>
+              </div>          </div>
             </div>
           </div>
         </div>
     </section>
     <!-- ======= End Resume Section ======= -->
 
-
-    </div>
-
-    </div>
-
-    </div>
-
-    </section><!-- /Resume Section -->
-
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Below are some of the products I have developed. While many others are not displayed due to their internal
+        <h2 data-i18n="portfolio.title">Portfolio</h2>
+        <p data-i18n="portfolio.desc">Below are some of the products I have developed. While many others are not displayed due to their internal
           use and confidentiality agreements, the projects showcased here have been published and are available for
           public viewing.</p>
       </div><!-- End Section Title -->
@@ -702,22 +572,22 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">Dashboards</li>
-            <li data-filter=".filter-analysis">Analysis</li>
-            <li data-filter=".filter-product">Maps</li>
-            <li data-filter=".filter-branding">Website</li>
-            <li data-filter=".filter-scripts">Scripts</li>
+            <li data-filter="*" class="filter-active" data-i18n="filter.all">All</li>
+            <li data-filter=".filter-app" data-i18n="filter.dash">Dashboards</li>
+            <li data-filter=".filter-analysis" data-i18n="filter.analysis">Analysis</li>
+            <li data-filter=".filter-product" data-i18n="filter.maps">Maps</li>
+            <li data-filter=".filter-branding" data-i18n="filter.website">Website</li>
+            <li data-filter=".filter-scripts" data-i18n="filter.scripts">Scripts</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/dashboard6.png" class="img-fluid" alt="">
+                <img src="assets/img/portfolio/dashboard6.png" class="img-fluid" alt="" width="600" height="400">
                 <div class="portfolio-info">
-                  <h4>Immunization Coverage Dashboard</h4>
-                  <p>This interactive dashboard provides a comprehensive view of immunization coverage data by country
+                  <h4 data-i18n="portfolio.item1.title">Immunization Coverage Dashboard</h4>
+                  <p data-i18n="portfolio.item1.desc">This interactive dashboard provides a comprehensive view of immunization coverage data by country
                     and year.</p>
                   <a href="assets/img/portfolio/dashboard6.png" title="Immunization Coverage Dashboard"
                     data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
@@ -728,14 +598,12 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/dashboard1.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/dashboard1.png" class="img-fluid" alt="" width="600" height="400">
                   <div class="portfolio-info">
-                    <h4>Natural Disasters: Analysis of Global Impact</h4>
-                    <p>This dashboard offers a global and dynamic vision of the social and economic impact of natural
+                    <h4 data-i18n="portfolio.item2.title">Natural Disasters: Analysis of Global Impact</h4>
+                    <p data-i18n="portfolio.item2.desc">This dashboard offers a global and dynamic vision of the social and economic impact of natural
                       disasters worldwide.</p>
                     <a href="assets/img/portfolio/dashboard1.png" title="Natural Disasters: Analysis of Global Impact"
                       data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
@@ -747,10 +615,10 @@
               </div><!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/app-1.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/app-1.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Epidemiological Index - COVID-19</h4>
-                    <p>Provides a comprehensive overview of COVID-19 trends globally, updated as of December 27, 2022.
+                    <h4 data-i18n="portfolio.item3.title">Epidemiological Index - COVID-19</h4>
+                    <p data-i18n="portfolio.item3.desc">Provides a comprehensive overview of COVID-19 trends globally, updated as of December 27, 2022.
                     </p>
                     <a href="assets/img/portfolio/app-1.png" title="Epidemiological Index - COVID-19"
                       data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
@@ -762,10 +630,10 @@
               </div><!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/Dashboard3.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/Dashboard3.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Poulation Movement Monitoring System</h4>
-                    <p>This dashboard shows services delivered, people reached, and activities, highlighting migration
+                    <h4 data-i18n="portfolio.item4.title">Population Movement Monitoring System</h4>
+                    <p data-i18n="portfolio.item4.desc">This dashboard shows services delivered, people reached, and activities, highlighting migration
                       trends and humanitarian response.</p>
                     <a href="assets/img/portfolio/dashboard3.png" title="Poulation Movement Monitoring System"
                       data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
@@ -777,16 +645,18 @@
               </div><!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/map-1.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/map-1.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Flood Response in Costa Rica – Affected Areas and Intervention Zones</h4>
-                    <p>This map highlights the areas affected by floods in Costa Rica and the intervention zones where
+                    <h4 data-i18n="portfolio.item5.title">Flood Response in Costa Rica – Affected Areas and Intervention Zones</h4>
+                    <p data-i18n="portfolio.item5.desc">This map highlights the areas affected by floods in Costa Rica and the intervention zones where
                       the Red Cross is actively responding.</p>
                     <a href="assets/img/portfolio/map-1.png"
                       title="Flood Response in Costa Rica – Affected Areas and Intervention Zones"
                       data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                         class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    <a href="assets/img/portfolio/map-1.png"
+                      title="Flood Response in Costa Rica – Affected Areas and Intervention Zones"
+                      data-gallery="portfolio-gallery-product" class="glightbox details-link"><i
                         class="bi bi-link-45deg"></i></a>
                   </div>
                 </div>
@@ -794,15 +664,16 @@
 
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>My Portfolio & Resume</h4>
-                    <p>My professional journey, where data visualization, analytics, and business intelligence meet
+                    <h4 data-i18n="portfolio.item6.title">My Portfolio &amp; Resume</h4>
+                    <p data-i18n="portfolio.item6.desc">My professional journey, where data visualization, analytics, and business intelligence meet
                       humanitarian action.</p>
                     <a href="assets/img/portfolio/branding-1.jpg" title="My Portfolio & Resume"
                       data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
                         class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    <a href="assets/img/portfolio/branding-1.jpg" title="My Portfolio & Resume"
+                      data-gallery="portfolio-gallery-branding" class="glightbox details-link"><i
                         class="bi bi-link-45deg"></i></a>
                   </div>
                 </div>
@@ -810,10 +681,10 @@
 
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/dashboard2.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/dashboard2.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Immunization: Vaccines and Biologicals</h4>
-                    <p>This dashboard provides a global overview of immunization coverage, vaccine distribution, and
+                    <h4 data-i18n="portfolio.item7.title">Immunization: Vaccines and Biologicals</h4>
+                    <p data-i18n="portfolio.item7.desc">This dashboard provides a global overview of immunization coverage, vaccine distribution, and
                       trends.</p>
                     <a href="assets/img/portfolio/dashboard2.png" title="Immunization: Vaccines and Biologicals"
                       data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
@@ -825,11 +696,11 @@
               </div><!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/Dashboard4.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/Dashboard4.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Mental Health and Psychosocial Support (MHPSS) Capacities of National Societies in the Americas
+                    <h4 data-i18n="portfolio.item8.title">Mental Health and Psychosocial Support (MHPSS) Capacities of National Societies in the Americas
                     </h4>
-                    <p>This dashboard provides a comprehensive overview of the Mental Health and Psychosocial Support
+                    <p data-i18n="portfolio.item8.desc">This dashboard provides a comprehensive overview of the Mental Health and Psychosocial Support
                       (MHPSS) capacities across National Societies in the Americas region.</p>
                     <a href="assets/img/portfolio/dashboard4.png"
                       title="Mental Health and Psychosocial Support (MHPSS) Capacities of National Societies in the Americas"
@@ -842,10 +713,10 @@
               </div><!-- End Portfolio Item -->
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/map-2.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/map-2.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Dengue Outbreak Response in Panama – 2024</h4>
-                    <p>This map highlights the intervention areas for the 2024 dengue outbreak in Panama.</p>
+                    <h4 data-i18n="portfolio.item9.title">Dengue Outbreak Response in Panama – 2024</h4>
+                    <p data-i18n="portfolio.item9.desc">This map highlights the intervention areas for the 2024 dengue outbreak in Panama.</p>
                     <a href="assets/img/portfolio/map-2.png" title="e Outbreak Response in Panama – 2024"
                       data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                         class="bi bi-zoom-in"></i></a>
@@ -857,10 +728,10 @@
 
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/Dashboard5.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/Dashboard5.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Impact of Natural Disasters in Latin America and the Caribbean (2010-2019)</h4>
-                    <p>This interactive dashboard provides a detailed analysis of natural disasters that impacted Latin
+                    <h4 data-i18n="portfolio.item10.title">Impact of Natural Disasters in Latin America and the Caribbean (2010-2019)</h4>
+                    <p data-i18n="portfolio.item10.desc">This interactive dashboard provides a detailed analysis of natural disasters that impacted Latin
                       America and the Caribbean between 2010 and 2019.</p>
                     <a href="assets/img/portfolio/Dashboard5.png"
                       title="Impact of Natural Disasters in Latin America and the Caribbean (2010-2019)"
@@ -874,10 +745,10 @@
 
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/map-3.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/map-3.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Dengue Epidemic in Honduras</h4>
-                    <p>This map illustrates the areas affected by the dengue epidemic in Honduras, with a focus on
+                    <h4 data-i18n="portfolio.item11.title">Dengue Epidemic in Honduras</h4>
+                    <p data-i18n="portfolio.item11.desc">This map illustrates the areas affected by the dengue epidemic in Honduras, with a focus on
                       intervention zones where the Red Cross is actively responding.</p>
                     <a href="assets/img/portfolio/map-3.png" title="Dengue Epidemic in Honduras"
                       data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
@@ -890,10 +761,10 @@
 
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-scripts">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/python-script.png" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/python-script.png" class="img-fluid" alt="" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Excel to SQL Upload Script</h4>
-                    <p>A Python script to automate the process of uploading Excel files to SQL Server.</p>
+                    <h4 data-i18n="portfolio.item12.title">Excel to SQL Upload Script</h4>
+                    <p data-i18n="portfolio.item12.desc">A Python script to automate the process of uploading Excel files to SQL Server.</p>
                     <a href="assets/img/portfolio/python-script.png" title="Excel to SQL Upload Script"
                       data-gallery="portfolio-gallery-scripts" class="glightbox preview-link"><i
                         class="bi bi-zoom-in"></i></a>
@@ -905,10 +776,10 @@
 
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analysis">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/eda-titanic.png" class="img-fluid" alt="EDA Titanic Analysis">
+                  <img src="assets/img/portfolio/eda-titanic.png" class="img-fluid" alt="EDA Titanic Analysis" width="600" height="400" loading="lazy">
                   <div class="portfolio-info">
-                    <h4>Exploratory Data Analysis — Titanic</h4>
-                    <p>Comprehensive EDA identifying key factors that determined passenger survival on the Titanic,
+                    <h4 data-i18n="portfolio.item13.title">Exploratory Data Analysis — Titanic</h4>
+                    <p data-i18n="portfolio.item13.desc">Comprehensive EDA identifying key factors that determined passenger survival on the Titanic,
                       including statistical tests and 12 professional visualizations.</p>
 
                     <!-- NEW: Custom Modal Trigger -->
@@ -938,8 +809,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Interests</h2>
-        <p>My interests span across professional, personal, and recreational areas, creating a well-rounded balance
+        <h2 data-i18n="interests.title">Interests</h2>
+        <p data-i18n="interests.desc">My interests span across professional, personal, and recreational areas, creating a well-rounded balance
           between technology, creativity, and physical activity. While I don't always have time for everything, I strive
           to dedicate moments to these pursuits whenever possible, as they fuel both my professional innovation and
           personal fulfillment.</p>
@@ -952,8 +823,8 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="icon flex-shrink-0"><i class="bi bi-airplane"></i></div>
             <div>
-              <h4 class="title"><a class="stretched-link">Photography and Drone Videography</a></h4>
-              <p class="description">Capturing compelling visuals and dynamic aerial footage to document landscapes.</p>
+              <h4 class="title"><a class="stretched-link" data-i18n="interest1.title">Photography and Drone Videography</a></h4>
+              <p class="description" data-i18n="interest1.desc">Capturing compelling visuals and dynamic aerial footage to document landscapes.</p>
             </div>
           </div>
           <!-- End Service Item -->
@@ -961,47 +832,40 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="icon flex-shrink-0"><i class="bi bi-cpu"></i></div>
             <div>
-              <h4 class="title"><a class="stretched-link">Artificial Intelligence</a></h4>
-              <p class="description">Exploring the development and application of AI technologies to enhance data
-                analysis, automate processes, and drive innovative solutions in both humanitarian contexts and personal
-                development.</p>
+              <h4 class="title"><a class="stretched-link" data-i18n="interest2.title">Artificial Intelligence</a></h4>
+              <p class="description" data-i18n="interest2.desc">Exploring the development and application of AI technologies to enhance data analysis, automate processes, and drive innovative solutions in both humanitarian contexts and personal development.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
             <div>
-              <h4 class="title"><a class="stretched-link">Quantitative Trading</a></h4>
-              <p class="description">Applying data-driven strategies and algorithmic models using Python and Artificial
-                Intelligence to analyze financial markets, optimize trading decisions, and leverage statistical methods
-                for consistent performance and effective risk management.</p>
+              <h4 class="title"><a class="stretched-link" data-i18n="interest3.title">Quantitative Trading</a></h4>
+              <p class="description" data-i18n="interest3.desc">Applying data-driven strategies and algorithmic models using Python and Artificial Intelligence to analyze financial markets, optimize trading decisions, and leverage statistical methods for consistent performance and effective risk management.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="icon flex-shrink-0"><i class="bi bi-trophy"></i></div>
             <div>
-              <h4 class="title"><a class="stretched-link">Tennis</a></h4>
-              <p class="description">Engaging in tennis as both a competitive sport and a recreational activity,
-                promoting physical fitness, strategic thinking, and mental resilience on and off the court.</p>
+              <h4 class="title"><a class="stretched-link" data-i18n="interest4.title">Tennis</a></h4>
+              <p class="description" data-i18n="interest4.desc">Engaging in tennis as both a competitive sport and a recreational activity, promoting physical fitness, strategic thinking, and mental resilience on and off the court.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
             <div class="icon flex-shrink-0"><i class="bi bi-joystick"></i></div>
             <div>
-              <h4 class="title"><a class="stretched-link">Video Games</a></h4>
-              <p class="description">Passionate about video games as a way to unwind, enhance strategic thinking, and
-                engage in immersive, interactive storytelling experiences. 🎮</p>
+              <h4 class="title"><a class="stretched-link" data-i18n="interest5.title">Video Games</a></h4>
+              <p class="description" data-i18n="interest5.desc">Passionate about video games as a way to unwind, enhance strategic thinking, and engage in immersive, interactive storytelling experiences. 🎮</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
             <div class="icon flex-shrink-0"><i class="bi bi-music-note-beamed"></i></div>
             <div>
-              <h4 class="title"><a class="stretched-link">Electronic Music</a></h4>
-              <p class="description">Exploring electronic music for its innovative soundscapes and creative expression,
-                blending rhythm and technology to inspire focus, relaxation, and artistic exploration. 🎧</p>
+              <h4 class="title"><a class="stretched-link" data-i18n="interest6.title">Electronic Music</a></h4>
+              <p class="description" data-i18n="interest6.desc">Exploring electronic music for its innovative soundscapes and creative expression, blending rhythm and technology to inspire focus, relaxation, and artistic exploration. 🎧</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -1016,9 +880,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>References</h2>
-        <p>Throughout my career, I have had the privilege of collaborating with exceptional professionals across various
-          projects and humanitarian contexts.</p>
+        <h2 data-i18n="references.title">References</h2>
+        <p data-i18n="references.desc">Throughout my career, I have had the privilege of collaborating with exceptional professionals across various projects and humanitarian contexts.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -1054,73 +917,39 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <p>
-                  <!-- <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                  <i class="bi bi-quote quote-icon-right"></i><br> -->
                   <span>Contact: afrida@iom.int</span>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                 <h3>Frida Archibold</h3>
-                <h4>National Data and KM Officer</h4>
-                <h4>International Organization for Migration (IOM)</h4>
+                <h4 data-i18n="ref1.role">National Data and KM Officer</h4>
+                <h4 data-i18n="ref1.org">International Organization for Migration (IOM)</h4>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <p>
-                  <!--<i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa hasssjjss jash.</span>
-                  <i class="bi bi-quote quote-icon-right"></i><br> -->
                   <span>Contact: diana.oviedo@ifrc.org</span>
                 </p>
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                 <h3>Diana Oviedo</h3>
-                <h4>Coordinator, Operations</h4>
-                <h4>International Federation of the Red Cross (IFRC)</h4>
+                <h4 data-i18n="ref2.role">Coordinator, Operations</h4>
+                <h4 data-i18n="ref2.org">International Federation of the Red Cross (IFRC)</h4>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <p>
-                  <!--<i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                  <i class="bi bi-quote quote-icon-right"></i><br> -->
                   <span>Contact: rmaceo@unicef.org</span>
                 </p>
                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                 <h3>Benedicto Maceo</h3>
-                <h4>WASH OFFICER</h4>
-                <h4>UNICEF</h4>
+                <h4 data-i18n="ref3.role">WASH Officer</h4>
+                <h4 data-i18n="ref3.org">UNICEF</h4>
               </div>
             </div><!-- End testimonial item -->
 
-            <!-- <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div> --> <!-- End testimonial item -->
-
-            <!-- <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div>  --> <!-- End testimonial item -->
 
           </div>
           <div class="swiper-pagination"></div>
@@ -1135,8 +964,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Feel free to reach out to me for any inquiries, collaborations, or professional opportunities.</p>
+        <h2 data-i18n="contact.title">Contact</h2>
+        <p data-i18n="contact.desc">Feel free to reach out to me for any inquiries, collaborations, or professional opportunities.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -1150,7 +979,7 @@
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3>Call Me</h3>
+                <h3 data-i18n="contact.callTitle">Call Me</h3>
                 <p>+507 6630 6663</p>
               </div>
             </div><!-- End Info Item -->
@@ -1158,7 +987,7 @@
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3>Email Me</h3>
+                <h3 data-i18n="contact.emailTitle">Email Me</h3>
                 <p>cesarvera6@gmail.com</p>
               </div>
             </div><!-- End Info Item -->
@@ -1168,14 +997,56 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
                 <i class="bi bi-whatsapp flex-shrink-0" style="font-size: 24px; margin-right: 10px;"></i>
                 <div>
-                  <h3>WhatsApp</h3>
-                  <p>Click here to chat</p>
+                  <h3 data-i18n="contact.waTitle">WhatsApp</h3>
+                  <p data-i18n="contact.waDesc">Click here to chat</p>
                 </div>
               </div>
             </a><!-- End WhatsApp Item -->
 
+          </div><!-- End col-lg-5 -->
 
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+            <form action="forms/contact.php" method="post" class="php-email-form">
+              <div class="row gy-4">
 
+                <div class="col-md-6">
+                  <label for="contact-name" data-i18n="contact.form.namePlaceholder" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="contact-name" class="form-control"
+                    placeholder="" data-i18n-placeholder="contact.form.namePlaceholder" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="contact-email" data-i18n="contact.form.emailPlaceholder" class="pb-2">Your Email</label>
+                  <input type="email" name="email" id="contact-email" class="form-control"
+                    placeholder="" data-i18n-placeholder="contact.form.emailPlaceholder" required>
+                </div>
+
+                <div class="col-12">
+                  <label for="contact-subject" data-i18n="contact.form.subjectPlaceholder" class="pb-2">Subject</label>
+                  <input type="text" name="subject" id="contact-subject" class="form-control"
+                    placeholder="" data-i18n-placeholder="contact.form.subjectPlaceholder" required>
+                </div>
+
+                <div class="col-12">
+                  <label for="contact-message" data-i18n="contact.form.messagePlaceholder" class="pb-2">Message</label>
+                  <textarea name="message" id="contact-message" class="form-control" rows="6"
+                    placeholder="" data-i18n-placeholder="contact.form.messagePlaceholder" required></textarea>
+                </div>
+
+                <div class="col-12 text-center">
+                  <div class="loading" data-i18n="contact.form.loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message" data-i18n="contact.form.sent">Your message has been sent. Thank you!</div>
+                  <button type="submit" data-i18n="contact.form.sendBtn">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End col-lg-7 -->
+
+        </div>
+
+      </div>
 
     </section><!-- /Contact Section -->
 
@@ -1186,8 +1057,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright <span id="year"></span></span> <strong class="px-1 sitename">Cesar Vera</strong> <span>All
-            Rights Reserved</span></p>
+        <p>© <span data-i18n="footer.copyright">Copyright</span> <span id="year"></span> <strong class="px-1 sitename">Cesar Vera</strong> <span data-i18n="footer.rights">All Rights Reserved</span></p>
       </div>
       <div class="credits">
         Designed by <a href="https://www.linkedin.com/in/cesar-alfonso-vera-medina-719250189/">Cesar Vera</a>
@@ -1210,15 +1080,15 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/typed.js/typed.umd.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
   <!-- Activar Tooltips -->
   <script>
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -1231,7 +1101,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" crossorigin="anonymous"
     referrerpolicy="no-referrer"></script>
   <script>
-    VanillaTilt.init(document.querySelectorAll(".portfolio-wrap"), {
+    VanillaTilt.init(document.querySelectorAll(".portfolio-content"), {
       max: 15,
       speed: 400,
       glare: true,
@@ -1271,10 +1141,14 @@
   <div class="cursor-outline"></div>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 
   <!-- Particle Animation -->
-  <script src="assets/js/particles.js?v=6"></script>
+  <script src="assets/js/particles.js?v=6" defer></script>
+
+  <!-- i18n Translation System -->
+  <script src="assets/js/translations.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
 
 </body>
 
