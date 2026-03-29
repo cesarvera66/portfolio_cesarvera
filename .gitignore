@@ -1,0 +1,6 @@
+# Local AI tooling — never track
+.claude/
+.claude.json
+.claude.local.json
+*.claude.md
+CLAUDE.md
